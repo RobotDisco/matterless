@@ -34,24 +34,35 @@
 (require 'json)
 (require 'request)
 
-(defvar matterless-server-url
-  "DEFINEME"
-  "This is the mattermost server we will be talking to.")
+(defgroup matterless nil
+  "Emacs Mattermost Client"
+  :prefix "matterless-"
+  :group 'tools)
 
-(defvar matterless-api-prefix
+(defcustom matterless-server-url nil
+  "URL of the mattermost server we will be talking to."
+  :type 'string
+  :group 'matterless)
+
+(defun matterless-api-prefix ()
+  "Return the full url of the base Mattermost API path."
   (concat matterless-server-url "/api/v4/"))
 
-(defvar matterless-user
-  "DEFINEME")
+(defcustom matterless-username nil
+  "Username of our mattermost server."
+  :type 'string
+  :group 'matterless)
 
-(defvar matterless-password
-  "DEFINEME")
+(defcustom matterless-password nil
+  "User password of our mattermost server."
+  :type 'string
+  :group 'matterless)
 
 (defun matterless-request-login ()
   "Login to mattermost."
   (let ((req (request
-              (concat matterless-api-prefix "users/login")
-              :data (json-encode `(("login_id" . ,matterless-user)
+              (concat (matterless-api-prefix) "users/login")
+              :data (json-encode `(("login_id" . ,matterless-username)
                                   ("password" . ,matterless-password)))
               :parser 'json-read
               :sync t)))
