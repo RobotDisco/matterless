@@ -1,17 +1,18 @@
 CASK ?= cask
 EMACS ?= emacs
 
-all: test
+help: ## Show help message.
+	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
 
-test: unit ecukes
+test: unit ecukes ## Run unit and BDD tests
 
-unit:
+unit: ## Run unit tests
 	${CASK} exec ert-runner
 
-ecukes:
+ecukes: ## Run BDD tests
 	${CASK} exec ecukes
 
-install:
+install: ## Install package locally
 	${CASK} install
 
 .PHONY:	all test unit ecukes install
