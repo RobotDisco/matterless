@@ -1,11 +1,12 @@
 ;;; matterless.el --- MatterMost client for Emacs -*- lexical-binding: t; -*-
 
-;;; Copyright (C) 2019 Gaelan D'costa
+;; Copyright (C) 2019-2020 Gaelan D'costa
 
-;;; Author: Gaelan D'costa <gdcosta@gmail.com>
-;;; Created: April 07, 2019
-;;; Keywords: chat mattermost
-;;; Homepage: https://github.com/RobotDisco/matterless
+;; Author: Gaelan D'costa <gdcosta@gmail.com>
+;; Version: 0.0.1
+;; Created: April 07, 2019
+;; Keywords: chat, mattermost
+;; Homepage: https://github.com/RobotDisco/matterless
 
 ;; This file is not part of GNU Emacs.
 
